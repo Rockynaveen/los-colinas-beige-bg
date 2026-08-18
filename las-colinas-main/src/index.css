@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-navy-dark: #071120;
+  --color-navy-medium: #0b1a30;
+  --color-navy-light: #162a45;
+  --color-navy-text: #071120;
+  --color-navy-muted: #334155;
+  
+  --color-gold-bright: #e2c068;
+  --color-gold-medium: #c59b27;
+  --color-gold-dark: #9a7515;
+  --color-gold-champagne: #f3e5c8;
+  
+  --color-beige-light: #fbf8f2;
+  --color-beige-medium: #f5ede0;
+  --color-beige-dark: #ebe1cf;
+  --color-beige-card: #ffffff;
+  --color-beige-warm: #eee5d3;
+  --color-beige-pearl: #faf6ee;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
+}
+
+:root {
+  --background: #fbf8f2;
+  --foreground: #071120;
+  --card: #ffffff;
+  --card-foreground: #071120;
+  --popover: #fbf8f2;
+  --popover-foreground: #071120;
+  --primary: #c59b27;
+  --primary-foreground: #ffffff;
+  --secondary: #f5ede0;
+  --secondary-foreground: #071120;
+  --muted: #eee5d3;
+  --muted-foreground: #475569;
+  --accent: #f5ede0;
+  --accent-foreground: #9a7515;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(197, 155, 39, 0.22);
+  --input: rgba(197, 155, 39, 0.28);
+  --ring: #c59b27;
+  --radius: 0.875rem;
+}
+
+/* Zero box-shadows globally for clean, modern architectural look */
+*, *::before, *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f5ede0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c59b27;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4af37;
+}
+
+/* Clean, modern typography and readability */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", "Montserrat", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Plus Jakarta Sans", "Montserrat", system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: normal;
+}
+
+/* Clean Card with Hairline Gold Borders */
+.luxury-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 155, 39, 0.25);
+  transition: all 0.3s ease;
+}
+
+.luxury-card:hover {
+  border-color: rgba(197, 155, 39, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Gold Gradient Shimmer text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #a17d1a 0%, #d4af37 45%, #c59b27 70%, #8c670f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Clean Gold Button */
+.btn-gold-luxury {
+  background: linear-gradient(135deg, #d4af37 0%, #e2c068 50%, #c59b27 100%);
+  color: #071120;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-gold-luxury:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.15; }
+  50% { transform: translateY(-12px) scale(1.1); opacity: 0.3; }
+}
+
+@keyframes shimmerGold {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float-glow {
+  animation: floatGlow 6s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #9a7515 0%, #071120 50%, #9a7515 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmerGold 4s linear infinite;
+}
