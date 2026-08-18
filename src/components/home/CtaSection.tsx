@@ -1,21 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Handshake, Check, Send, Phone, Mail, MapPin } from 'lucide-react';
+import { Shield, Check, Phone, Mail, ArrowRight } from 'lucide-react';
 import { RevealSection, FloatingOrbs } from '../common/RevealSection';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 
 export const CtaSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
+    company: '',
     email: '',
     phone: '',
-    hotelName: '',
-    location: '',
-    roomCount: '',
-    serviceInterest: '',
+    property: '',
+    scope: 'Full Hotel Operations Management',
     message: ''
   });
 
@@ -36,250 +31,271 @@ export const CtaSection: React.FC = () => {
   const handleReset = () => {
     setFormData({
       name: '',
+      company: '',
       email: '',
       phone: '',
-      hotelName: '',
-      location: '',
-      roomCount: '',
-      serviceInterest: '',
+      property: '',
+      scope: 'Full Hotel Operations Management',
       message: ''
     });
     setIsSubmitted(false);
   };
 
+  const keyPoints = [
+    'Fiduciary & Owner-First Alignment',
+    'Dynamic Yield & RevPAR Growth',
+    'Brand QA & Turnaround Execution',
+    'Strategic Renovation & PIP Oversight'
+  ];
+
   return (
-    <section id="cta-section" className="py-12 bg-[#faf4ea] border-t border-gold-medium/20 px-4 sm:px-6 lg:px-8 text-left relative overflow-hidden font-sans text-navy-dark">
-      <div className="absolute top-1/2 left-0 right-0 h-56 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_75%)] pointer-events-none" />
+    <section id="cta-section" className="py-16 sm:py-20 bg-[#faf4ea] border-t border-gold-medium/20 px-4 sm:px-6 lg:px-8 text-left relative overflow-hidden font-sans text-navy-dark">
+      {/* Subtle Radial Glow in background */}
+      <div className="absolute top-1/2 left-0 right-0 h-64 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.06)_0%,transparent_75%)] pointer-events-none" />
       <FloatingOrbs />
 
-      <div className="max-w-7xl mx-auto relative z-10 space-y-10">
-        
-        {/* Section Header */}
-        <RevealSection type="fade-up" className="text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <span className="h-[1px] w-10 bg-gold-medium/60" />
-            <span className="text-xs font-semibold tracking-widest text-gold-dark uppercase font-sans">
-              LET'S COLLABORATE
-            </span>
-            <span className="h-[1px] w-10 bg-gold-medium/60" />
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-navy-dark tracking-wide leading-tight">
-            Partner With Las Colinas Hospitality
-          </h2>
-
-          <p className="font-sans text-slate-700 text-sm sm:text-base font-normal mt-3 max-w-2xl mx-auto leading-relaxed">
-            Ready to elevate your property's performance? Schedule a confidential management consultation or property evaluation with our executive team.
-          </p>
-        </RevealSection>
-
-        {/* Form and Contact Matrix */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Direct Contact & Advisory Checkpoints (5 Cols) */}
-          <RevealSection type="fade-right" className="lg:col-span-5 space-y-6">
+          {/* Left Column: Partnership Advisory Narrative & Key Highlights (6 Cols) */}
+          <RevealSection type="fade-right" className="lg:col-span-6 space-y-6">
             
-            <div className="p-6 rounded-2xl bg-white border border-gold-medium/30 shadow-md space-y-6">
-              <h3 className="font-serif text-xl font-light text-navy-dark">
-                Why Property Owners Choose Us:
-              </h3>
+            {/* Eyebrow */}
+            <div className="flex items-center gap-3">
+              <span className="h-[1px] w-8 bg-gold-medium/60" />
+              <span className="text-[11px] font-semibold tracking-[0.25em] text-gold-dark uppercase font-sans">
+                PARTNERSHIP ADVISORY
+              </span>
+              <span className="h-[1px] w-8 bg-gold-medium/60" />
+            </div>
 
-              <div className="space-y-3.5">
-                {[
-                  'Direct principal-to-principal communication without corporate bureaucracy.',
-                  'Transparent financial accounting with 24/7 owner portal reporting.',
-                  'Deep regional vendor network driving 12-18% procurement cost savings.',
-                  'Proven track record across select-service, extended-stay, and boutique hotels.'
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
-                    <div className="w-5 h-5 rounded-full bg-gold-medium/20 border border-gold-medium/40 flex items-center justify-center text-gold-dark flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3" />
-                    </div>
-                    <span>{item}</span>
+            {/* Headline */}
+            <div className="space-y-1">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-navy-dark tracking-tight leading-[1.18]">
+                Transforming Hotel<br />
+                Assets<br />
+                <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-gold-dark via-gold-medium to-gold-bright">
+                  Into Outperforming<br />
+                  Investments.
+                </span>
+              </h2>
+            </div>
+
+            {/* Paragraph Text */}
+            <p className="text-slate-700 text-xs sm:text-sm font-normal leading-relaxed max-w-xl">
+              Whether acquiring a property, repositioning an existing asset, or seeking high-impact management, our leadership team delivers disciplined operational oversight, transparent financial reporting, and sustainable ROI.
+            </p>
+
+            {/* 4 Feature Checkpoints in 2-Column Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              {keyPoints.map((point, idx) => (
+                <div key={idx} className="flex items-center gap-2.5">
+                  <div className="w-4 h-4 rounded-full bg-gold-medium/20 border border-gold-medium/45 flex items-center justify-center text-gold-dark flex-shrink-0 shadow-xs">
+                    <Check className="w-2.5 h-2.5 stroke-[2.5]" />
                   </div>
-                ))}
+                  <span className="text-xs sm:text-[13px] text-navy-dark font-medium">
+                    {point}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Direct Contact Bar */}
+            <div className="pt-4 border-t border-gold-medium/20 flex flex-wrap items-center gap-3 sm:gap-5 text-xs text-navy-dark font-medium">
+              <div className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-gold-dark" />
+                <a href="tel:2149520198" className="hover:text-gold-dark transition-colors font-mono">
+                  +1 (214) 952-0198
+                </a>
               </div>
-
-              <div className="pt-4 border-t border-gold-medium/20 space-y-3">
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700">
-                  <Phone className="w-4 h-4 text-gold-dark flex-shrink-0" />
-                  <div>
-                    <span className="font-semibold text-navy-dark">Direct Phone: </span>
-                    <a href="tel:214-729-9676" className="hover:text-gold-dark transition-colors font-mono">214-729-9676</a>
-                    <span className="mx-1 text-slate-400">/</span>
-                    <a href="tel:214-709-4231" className="hover:text-gold-dark transition-colors font-mono">214-709-4231</a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700">
-                  <Mail className="w-4 h-4 text-gold-dark flex-shrink-0" />
-                  <div>
-                    <span className="font-semibold text-navy-dark">Email: </span>
-                    <a href="mailto:info@lascolinashospitality.com" className="hover:text-gold-dark transition-colors font-sans">
-                      info@lascolinashospitality.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-700">
-                  <MapPin className="w-4 h-4 text-gold-dark flex-shrink-0" />
-                  <div>
-                    <span className="font-semibold text-navy-dark">Corporate HQ: </span>
-                    <span>Irving, Texas (Dallas-Fort Worth Metroplex)</span>
-                  </div>
-                </div>
+              <span className="text-gold-medium font-bold">•</span>
+              <div className="flex items-center gap-1.5">
+                <Mail className="w-3.5 h-3.5 text-gold-dark" />
+                <a href="mailto:info@lchm.com" className="hover:text-gold-dark transition-colors">
+                  info@lchm.com
+                </a>
               </div>
+              <span className="text-gold-medium font-bold">•</span>
+              <span className="text-slate-600 font-normal">
+                Dallas, Texas
+              </span>
             </div>
 
           </RevealSection>
 
-          {/* Right Column: Confidential Evaluation Request Form (7 Cols) */}
-          <RevealSection type="fade-left" delay={0.15} className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gold-medium/30 shadow-md">
+          {/* Right Column: White Card Form (6 Cols) */}
+          <RevealSection type="fade-left" delay={0.12} className="lg:col-span-6">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-gold-medium/25 shadow-xl relative">
               
+              {/* Card Header with Shield Icon */}
+              <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-gold-medium/15">
+                <div className="w-10 h-10 rounded-xl bg-gold-medium/15 border border-gold-medium/35 flex items-center justify-center text-gold-dark flex-shrink-0 shadow-xs">
+                  <Shield className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl font-medium text-navy-dark leading-tight">
+                    Request a Management Consultation
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-gold-dark font-medium mt-0.5 tracking-wide">
+                    Confidential property evaluation &amp; tailored roadmap
+                  </p>
+                </div>
+              </div>
+
               {isSubmitted ? (
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="py-12 text-center space-y-4"
+                  className="py-10 text-center space-y-4 font-sans"
                 >
-                  <div className="w-14 h-14 rounded-full bg-gold-medium/20 border border-gold-medium/40 flex items-center justify-center text-gold-dark mx-auto">
-                    <Check className="w-7 h-7" />
+                  <div className="w-12 h-12 rounded-full bg-gold-medium/20 border border-gold-medium/40 flex items-center justify-center text-gold-dark mx-auto">
+                    <Check className="w-6 h-6 stroke-[2.5]" />
                   </div>
                   
-                  <h3 className="font-serif text-2xl font-light text-navy-dark">
+                  <h4 className="font-serif text-xl font-medium text-navy-dark">
                     Consultation Request Received
-                  </h3>
+                  </h4>
                   
-                  <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. A Las Colinas managing partner will review your asset details and respond within 24 business hours.
+                  <p className="text-slate-600 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed">
+                    Thank you. Our executive team will review your property details and contact you shortly.
                   </p>
 
-                  <Button
-                    variant="gold"
+                  <button
+                    type="button"
                     onClick={handleReset}
-                    className="mt-4 font-semibold text-xs tracking-wider"
+                    className="btn-gold-luxury px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider mt-2 cursor-pointer shadow-sm"
                   >
-                    Submit Another Inquiry
-                  </Button>
+                    Submit Another Request
+                  </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-name" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Full Name *
-                      </Label>
-                      <Input
-                        id="cta-name"
-                        placeholder="e.g. John Doe"
+                <form onSubmit={handleSubmit} className="space-y-4 font-sans">
+                  
+                  {/* Row 1: Name & Company */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        YOUR NAME *
+                      </label>
+                      <input
+                        type="text"
                         required
+                        placeholder="Full Name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-email" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Email Address *
-                      </Label>
-                      <Input
-                        id="cta-email"
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        COMPANY / HOTEL GROUP
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Acme Hospitality LLC"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 2: Email & Phone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        EMAIL ADDRESS *
+                      </label>
+                      <input
                         type="email"
-                        placeholder="e.g. john@hotelgroup.com"
                         required
+                        placeholder="contact@ownership.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors"
                       />
                     </div>
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-phone" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Phone Number
-                      </Label>
-                      <Input
-                        id="cta-phone"
-                        placeholder="e.g. (214) 555-0199"
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        PHONE NUMBER
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="(214) 000-0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
-                      />
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-hotel" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Hotel / Property Name
-                      </Label>
-                      <Input
-                        id="cta-hotel"
-                        placeholder="e.g. Comfort Suites or Independent"
-                        value={formData.hotelName}
-                        onChange={(e) => setFormData({ ...formData, hotelName: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-location" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Property Location (City, State)
-                      </Label>
-                      <Input
-                        id="cta-location"
-                        placeholder="e.g. Dallas, TX"
-                        value={formData.location}
-                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
+                  {/* Row 3: Property Name & Primary Scope */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        PROPERTY NAME / LOCATION
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Austin Boutique Hotel"
+                        value={formData.property}
+                        onChange={(e) => setFormData({ ...formData, property: e.target.value })}
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <Label htmlFor="cta-rooms" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                        Approximate Key Count (Rooms)
-                      </Label>
-                      <Input
-                        id="cta-rooms"
-                        placeholder="e.g. 110 keys"
-                        value={formData.roomCount}
-                        onChange={(e) => setFormData({ ...formData, roomCount: e.target.value })}
-                        className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
-                      />
+                    <div className="space-y-1">
+                      <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                        PRIMARY MANAGEMENT SCOPE
+                      </label>
+                      <select
+                        value={formData.scope}
+                        onChange={(e) => setFormData({ ...formData, scope: e.target.value })}
+                        className="w-full h-11 px-3.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs focus:outline-none focus:border-gold-dark transition-colors cursor-pointer"
+                      >
+                        <option value="Full Hotel Operations Management">Full Hotel Operations Management</option>
+                        <option value="Turnaround & Asset Repositioning">Turnaround & Asset Repositioning</option>
+                        <option value="Revenue Optimization & OTA Yield">Revenue Optimization & OTA Yield</option>
+                        <option value="Development & Brand PIP Oversight">Development & Brand PIP Oversight</option>
+                        <option value="Custom Advisory Consulting">Custom Advisory Consulting</option>
+                      </select>
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <Label htmlFor="cta-message" className="text-xs font-semibold text-navy-dark uppercase tracking-wider">
-                      Management Requirements / Objectives
-                    </Label>
-                    <Textarea
-                      id="cta-message"
+                  {/* Row 4: Additional Notes */}
+                  <div className="space-y-1">
+                    <label className="block text-[10px] uppercase tracking-wider text-navy-dark font-bold">
+                      ADDITIONAL NOTES / OBJECTIVES (OPTIONAL)
+                    </label>
+                    <textarea
                       rows={3}
-                      placeholder="Tell us about your property, current challenges, brand affiliation, or transition timeline..."
+                      placeholder="Tell us about your property and goals..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="bg-[#faf5eb] border-gold-medium/30 text-navy-dark text-xs sm:text-sm"
+                      className="w-full min-h-[75px] px-3.5 py-2.5 rounded-xl bg-[#fbf8f2] border border-gold-medium/30 text-navy-dark text-xs placeholder:text-slate-400 focus:outline-none focus:border-gold-dark transition-colors resize-y"
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-gold-luxury w-full py-4 rounded-lg text-xs font-bold tracking-[0.2em] uppercase shadow-lg inline-flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 mt-2"
-                  >
-                    {isSubmitting ? (
-                      <span>Submitting Request...</span>
-                    ) : (
-                      <>
-                        <span>Request Confidential Consultation</span>
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
+                  {/* Submit Button */}
+                  <div className="pt-2">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="btn-gold-luxury w-full h-12 rounded-xl text-xs font-bold uppercase tracking-[0.16em] inline-flex items-center justify-center gap-2 cursor-pointer shadow-md hover:shadow-lg disabled:opacity-50 transition-all"
+                    >
+                      {isSubmitting ? (
+                        <span>Processing Consultation Request...</span>
+                      ) : (
+                        <>
+                          <span>REQUEST PRIVATE CONSULTATION</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </>
+                      )}
+                    </button>
+                  </div>
+
                 </form>
               )}
 
@@ -287,7 +303,6 @@ export const CtaSection: React.FC = () => {
           </RevealSection>
 
         </div>
-
       </div>
     </section>
   );

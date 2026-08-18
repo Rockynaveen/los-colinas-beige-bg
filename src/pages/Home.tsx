@@ -7,7 +7,6 @@ import { WhyChooseUs } from '../components/home/WhyChooseUs';
 import { PortfolioShowcase } from '../components/home/PortfolioShowcase';
 import { TeamShowcase } from '../components/home/TeamShowcase';
 import { HotelManagement } from '../components/home/HotelManagement';
-import { MissionVisionSection } from '../components/MissionVisionSection';
 import { CtaSection } from '../components/home/CtaSection';
 import { type PageId } from '../components/Navigation';
 
@@ -24,7 +23,7 @@ export const Home: React.FC<HomeProps> = ({ setActivePage }) => {
   };
 
   return (
-    <div className="w-full bg-[#fbf8f2] text-navy-dark overflow-x-hidden select-none font-sans">
+    <div className="w-full bg-[#fbf8f2] text-navy-dark overflow-x-clip select-none font-sans">
       
       {/* 1. HERO SLIDER */}
       <Carousel />
@@ -50,10 +49,7 @@ export const Home: React.FC<HomeProps> = ({ setActivePage }) => {
       {/* 8. HOTEL MANAGEMENT CAPABILITIES */}
       <HotelManagement onLearnMore={() => navigateTo('services')} />
 
-      {/* 9. MISSION & VISION CORE VALUES SECTION */}
-      <MissionVisionSection onNavigateServices={() => navigateTo('services')} />
-
-      {/* 10. PARTNERSHIP & CONSULTATION FORM */}
+      {/* 9. PARTNERSHIP & CONSULTATION FORM */}
       <CtaSection />
 
     </div>
