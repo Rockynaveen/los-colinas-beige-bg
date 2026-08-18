@@ -627,13 +627,13 @@ const WhyChooseStickySequencer: React.FC = () => {
   return (
     <div ref={containerRef} className="relative h-[280vh]">
       {/* Sticky Responsive Viewport in Warm Luxury Beige */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center overflow-hidden z-10 pt-20 sm:pt-24 pb-8 sm:pb-12 font-sans bg-[#faf5eb]">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center px-3 sm:px-6 md:px-8 text-center overflow-hidden z-10 pt-16 sm:pt-20 md:pt-24 pb-6 sm:pb-10 font-sans bg-[#faf5eb]">
         
         {/* Ambient Radial Golden Spotlight */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[850px] h-[700px] sm:h-[850px] bg-[radial-gradient(circle,rgba(212,175,55,0.09)_0%,transparent_70%)] pointer-events-none" />
         <FloatingOrbs />
 
-        <div className="w-full max-w-5xl flex flex-col items-center justify-between h-full max-h-[620px] relative z-10">
+        <div className="w-full max-w-5xl flex flex-col items-center justify-between h-full max-h-[88vh] sm:max-h-[620px] relative z-10">
           
           {/* Header */}
           <div className="w-full space-y-2 flex-shrink-0 font-sans">

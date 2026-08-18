@@ -74,7 +74,7 @@ export const Carousel: React.FC<CarouselHeroProps> = () => {
   };
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] max-h-[1080px] flex items-center justify-center overflow-hidden group select-none">
+    <section className="relative w-full min-h-[540px] sm:min-h-[620px] h-[92vh] sm:h-screen max-h-[1080px] flex items-center justify-center overflow-hidden group select-none">
       {/* Background Slides */}
       {SLIDES.map((slide, index) => (
         <div
