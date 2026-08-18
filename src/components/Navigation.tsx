@@ -15,18 +15,18 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
-export type PageId = 
-  | 'home' 
-  | 'about-overview' 
-  | 'about-story' 
-  | 'about-vision' 
-  | 'about-values' 
-  | 'about-advantage' 
+export type PageId =
+  | 'home'
+  | 'about-overview'
+  | 'about-story'
+  | 'about-vision'
+  | 'about-values'
+  | 'about-advantage'
   | 'about-goals'
-  | 'services' 
-  | 'portfolio' 
-  | 'team' 
-  | 'careers' 
+  | 'services'
+  | 'portfolio'
+  | 'team'
+  | 'careers'
   | 'contact';
 
 interface NavigationProps {
@@ -127,17 +127,16 @@ export const Navigation: React.FC<NavigationProps> = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-[#fbf8f2]/95 backdrop-blur-xl py-2 border-b border-gold-medium/25 shadow-[0_10px_35px_-5px_rgba(161,125,26,0.07)]'
-          : 'bg-[#fbf8f2]/85 backdrop-blur-md py-3.5 border-b border-gold-medium/15 shadow-sm'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled
+          ? 'bg-[#fbf8f2]/95 backdrop-blur-xl  border-b border-gold-medium/25 shadow-[0_10px_35px_-5px_rgba(161,125,26,0.07)]'
+          : 'bg-[#fbf8f2]/85 backdrop-blur-md border-b border-gold-medium/15 shadow-sm'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo on the left filling header height */}
-          <div 
-            onClick={() => handleNavClick('home')} 
+          <div
+            onClick={() => handleNavClick('home')}
             className="flex-shrink-0 cursor-pointer flex items-center justify-center group py-1"
           >
             <img
@@ -152,11 +151,10 @@ export const Navigation: React.FC<NavigationProps> = () => {
             {/* Home */}
             <button
               onClick={() => handleNavClick('home')}
-              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${
-                activeSection === 'home'
+              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${activeSection === 'home'
                   ? 'text-gold-dark font-bold'
                   : 'text-navy-dark/80 hover:text-gold-dark'
-              }`}
+                }`}
             >
               <span>Home</span>
               {activeSection === 'home' && (
@@ -168,11 +166,10 @@ export const Navigation: React.FC<NavigationProps> = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button
-                  className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer outline-none relative ${
-                    isAboutActive
+                  className={`flex items-center gap-1.5 px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer outline-none relative ${isAboutActive
                       ? 'text-gold-dark font-bold'
                       : 'text-navy-dark/80 hover:text-gold-dark'
-                  }`}
+                    }`}
                 >
                   <span>About Us</span>
                   <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 text-gold-dark" />
@@ -197,11 +194,10 @@ export const Navigation: React.FC<NavigationProps> = () => {
             {/* Services */}
             <button
               onClick={() => handleNavClick('services')}
-              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${
-                activeSection === 'services'
+              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${activeSection === 'services'
                   ? 'text-gold-dark font-bold'
                   : 'text-navy-dark/80 hover:text-gold-dark'
-              }`}
+                }`}
             >
               <span>Services</span>
               {activeSection === 'services' && (
@@ -212,11 +208,10 @@ export const Navigation: React.FC<NavigationProps> = () => {
             {/* Portfolio */}
             <button
               onClick={() => handleNavClick('portfolio')}
-              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${
-                activeSection === 'portfolio'
+              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${activeSection === 'portfolio'
                   ? 'text-gold-dark font-bold'
                   : 'text-navy-dark/80 hover:text-gold-dark'
-              }`}
+                }`}
             >
               <span>Portfolio</span>
               {activeSection === 'portfolio' && (
@@ -227,11 +222,10 @@ export const Navigation: React.FC<NavigationProps> = () => {
             {/* Careers */}
             <button
               onClick={() => handleNavClick('careers')}
-              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${
-                activeSection === 'careers'
+              className={`px-4 py-2 text-xs font-semibold tracking-[0.18em] uppercase transition-all duration-300 cursor-pointer relative ${activeSection === 'careers'
                   ? 'text-gold-dark font-bold'
                   : 'text-navy-dark/80 hover:text-gold-dark'
-              }`}
+                }`}
             >
               <span>Careers</span>
               {activeSection === 'careers' && (
@@ -273,9 +267,8 @@ export const Navigation: React.FC<NavigationProps> = () => {
                   <div className="space-y-3">
                     <button
                       onClick={() => handleNavClick('home')}
-                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${
-                        activeSection === 'home' ? 'text-gold-dark font-bold' : 'text-navy-dark'
-                      }`}
+                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${activeSection === 'home' ? 'text-gold-dark font-bold' : 'text-navy-dark'
+                        }`}
                     >
                       Home
                     </button>
@@ -283,9 +276,8 @@ export const Navigation: React.FC<NavigationProps> = () => {
                     <div>
                       <button
                         onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                        className={`flex items-center justify-between w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${
-                          isAboutActive ? 'text-gold-dark font-bold' : 'text-navy-dark'
-                        }`}
+                        className={`flex items-center justify-between w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${isAboutActive ? 'text-gold-dark font-bold' : 'text-navy-dark'
+                          }`}
                       >
                         <span>About Us</span>
                         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isMobileAboutOpen ? 'rotate-180 text-gold-dark' : 'text-navy-dark'}`} />
@@ -308,27 +300,24 @@ export const Navigation: React.FC<NavigationProps> = () => {
 
                     <button
                       onClick={() => handleNavClick('services')}
-                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${
-                        activeSection === 'services' ? 'text-gold-dark font-bold' : 'text-navy-dark'
-                      }`}
+                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${activeSection === 'services' ? 'text-gold-dark font-bold' : 'text-navy-dark'
+                        }`}
                     >
                       Services
                     </button>
 
                     <button
                       onClick={() => handleNavClick('portfolio')}
-                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${
-                        activeSection === 'portfolio' ? 'text-gold-dark font-bold' : 'text-navy-dark'
-                      }`}
+                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${activeSection === 'portfolio' ? 'text-gold-dark font-bold' : 'text-navy-dark'
+                        }`}
                     >
                       Portfolio
                     </button>
 
                     <button
                       onClick={() => handleNavClick('careers')}
-                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${
-                        activeSection === 'careers' ? 'text-gold-dark font-bold' : 'text-navy-dark'
-                      }`}
+                      className={`block w-full text-left py-2.5 text-sm font-semibold tracking-widest uppercase border-b border-gold-medium/20 ${activeSection === 'careers' ? 'text-gold-dark font-bold' : 'text-navy-dark'
+                        }`}
                     >
                       Careers
                     </button>
